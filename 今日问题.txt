@@ -1,0 +1,155 @@
+1.eclipse中没有project facets?
+
+1、进入项目目录，可看到.project文件，打开。
+2、找到<natures>...</natures>代码段。
+3、在第2步的代码段中加入如下标签内容并保存：
+<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
+<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
+<nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
+4、在eclipse的项目上点右键，刷新项目。
+5、在项目上点右键，进入属性（properties）
+6、在左侧列表项目中点击选择“Project Facets”，在右侧选择“Dynamic Web Module”和"Java"，点击OK保存即可。
+
+
+2.eclipse导入maven项目报错-------
+Maven项目下update maven后Eclipse报错：java.lang.ClassNotFoundException: ContextLoaderL
+1.右键点击项目--选择Properties
+选择Deployment Assembly,在右边点击Add按钮，在弹出的窗口中选择Java Build Path Entries
+ 
+2.点击Next，选择Maven Dependencies
+
+3.点击Finish，然后可以看到已经把Maven Dependencies添加到Web应用结构中了
+
+3.eclipse导入maven项目报错-------
+Plugin execution not covered by lifecycle configuration: org.apache.maven.plugins:maven-compiler-plugin:3.1:testCompile 
+(execution: default-testCompile, phase: test-compile)
+
+在pom.xml中在报错的plugin的外面再包上一层<pluginManagement></pluginManagement>
+
+
+4.maven项目与mybatis整合后，控制台无法输出SQL语句
+加入解决
+<dependency>
+	 <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-log4j12</artifactId>
+	    <version>1.7.5</version>
+</dependency>
+
+5.maven安装自己的jar包到仓库
+mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc7 -Dversion=1.0 -Dpackaging=jar -Dfile=D:\xjava.jar
+
+
+6.下载的文件中文名为何变成了空格？
+需要对文件名称转码操作
+
+
+linux安装Redis大概命令
+解压-------------------tar -zxvf xxxx.yyy
+安装-------------------make REFIX=/usr/local/redis/ install
+复制-------------------cp redis.conf /usr/local/redis
+启动-------------------./bin/redis-server ./redis.conf
+查看-------------------ps -ef | grep -i re
+停止-------------------./bin/redis-cli shutdown
+
+进入客户端Redis目录：./bin/redis-cli
+
+docker启动Redis的命令
+mkdir /redis /redis/data
+vi /redis/data/redis.conf
+docker run -p 6379:6379 --name myredis -v $PWD/redis.conf:/redis/redis.conf -v $PWD/data:/data -d redis redis-server /redis/redis.conf
+
+docker run -v /myredis/conf/redis.conf:/usr/local/etc/redis/redis.conf --name myredis redis redis-server /usr/local/etc/redis/redis.conf
+
+docker run -p 6379:6379 --name myredis -v $PWD/redis.conf:/redis/redis.conf -d redis redis-server /redis/redis.conf
+
+
+2.虚拟机ip地址无法获取问题，执行下面命令
+systemctl stop NetworkManager
+systemctl disable NetworkManager
+然后
+systemctl start network.service
+
+3.jedis相关jar包下载
+http://files.cnblogs.com/liuling/jedis-2.1.0.jar.zip
+http://files.cnblogs.com/liuling/commons-pool-1.5.4.jar.zip、
+
+
+4.如何安装Docker
+
+1.sudo wget -qO- https://get.docker.com | sh   //安装wget命令   centos : sudo yum -y install wget
+
+2.sudo usermod -aG docker your-user     //docker默认是在root用户下运行，此命令可以添加用户到docker组
+
+3.service docker start  //启动docker
+
+docker run -d -p 9090:8080 -p 1521:1521 --name oracle11g wnameless/oracle-xe-11g
+
+
+118.25.236.24
+VDnYC5xInkZH
+
+132.232.163.33
+3xfKdqMxkJvrxB
+
+180.76.97.49
+wq123456!@＃
+
+
+svn://132.232.163.33/project
+
+scp jdk-8u181-linux-x64.tar.gz root@180.76.97.49:/usr/local
+
+
+
+jmeter
+1.官网：http://jmeter.apache.org/
+2.下载：http://jmeter.apache.org/download_jmeter.cgi/
+3.用户手册：http://jmeter.apache.org/usermanual/index.html
+
+再度重相逢
+
+启动mysql
+./support-files/mysql.server start
+
+启动springboot项目
+nohup java -Xms1024m -Xmx1024m -jar cloud-0.0.1-SNAPSHOT.jar > project.log 2>&1 &
+nohup java -jar cloud-0.0.1-SNAPSHOT.jar > project.log 2>&1 &
+
+Rabbit安装
+yum install erlang
+yum install rabbitmq-server-3.6.9-1.el6.noarch.rpm
+/sbin/service rabbitmq-server start
+/sbin/service rabbitmq-server stop
+
+
+zookeeper命令
+./zkServer.sh start
+./zkServer.sh stop
+./zkServer.sh restart
+./zkServer.sh status
+
+centos7的网卡重启方法：systemctl restart network
+
+lsof -i:5672
+
+http://180.76.97.49:15672/
+
+yum install -y gcc gcc-c++
+
+
+linux下打开/etc/my.cnf,在属性组mysqld下面添加参数如下：
+interactive_timeout=28800000
+
+wait_timeout=28800000
+
+
+https://www.git-scm.com/download/win
+
+
+
+
+
+
+
+
+
